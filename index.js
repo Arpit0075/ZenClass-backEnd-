@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 const mongo = require("./mongo");
 const studentRoutes = require("./routes/students.routes");
 const mentorsRoutes = require("./routes/mentors.routes");
