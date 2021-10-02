@@ -17,6 +17,9 @@ async function loadApp() {
     app.use(cors());
 
     //routes
+    app.get("/", (req, res) => {
+      res.send("welcome to home Page");
+    });
     app.use("/students", studentRoutes);
     app.use("/mentors", mentorsRoutes);
 

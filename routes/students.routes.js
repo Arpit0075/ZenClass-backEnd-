@@ -43,6 +43,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//assigning mentor to student
 router.put("/:id", async (req, res) => {
   try {
     // const updatedPost = await mongo.db.collection("posts")
