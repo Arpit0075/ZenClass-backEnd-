@@ -45,9 +45,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-//assigning student to mentor put req
+//assigning/updating student to mentor put req
 router.put("/:id", async (req, res) => {
   // console.log(req.body, req.params.id);
+  // res.send({ messagge: "assigned" });
+
   try {
     const assignedStudent = await mongo.mentors.findOneAndUpdate(
       { _id: ObjectId(req.params.id) },
@@ -55,7 +57,6 @@ router.put("/:id", async (req, res) => {
       { $push: { students: req.body.name } }
     );
     res.send(assignedStudent);
-    // need to update student collection assign mentor to the same student
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
